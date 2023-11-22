@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test</title>
+        <style>
+            body{
+                background-color:#1e90ff;
+            }
+            h1{
+                text-align: center;
+                color: white;
+                font-family:Georgia, 'Times New Roman', Times, serif;
+            }
+            form{
+                background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            margin:auto
+            }
+            label{
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+        input{
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"]{
+            background-color:#1e90ff;
+            width: 12%;
+            margin-top: 10%;
+        }
+        p{
+            margin-bottom: 15%;
+            background-color: #1e90ff;
+            width: 12%;
+            box-sizing: border-box;
+            border: 5px solid #1e90ff;
+            border-radius: 1px;
+            margin-left: 15px;
+        }
+        #Gender-container{
+            display: flex;
+            
+        }
+        </style>
+    </head>
+    <body>
+        <h1>MUTI STEPS FORM WIDGET</h1>
+        <form id="Background" onsubmit="return Profile()">
+            <p class="unknown">Profile</p>
+            
+            <input type="text" id="Firstname" name="Firstname" placeholder="First name">
+            <span id="FirstnameError" class="error"></span>
+
+            
+            <input type="text" id="Lastname" name="Lastname" placeholder="Last name" required>
+            <span id="LastnameError" class="error"></span>
+
+            
+            <input type="tel" id="Phone" name="Phone"  placeholder="Phone">
+            <span id="PhoneError" class="error"></span>
+
+            <div id="Gender-container">            
+            <label for="">Gender:</label>
+            <input type="radio" id="Female" name="Female">
+            <label for="">Female</label>
+            <input type="radio" id="Male" name="Male">
+            <label for="">Male</label>
+            <input type="submit" value="Next">
+            </div>
+        </form>
+    </body>
+</html>
