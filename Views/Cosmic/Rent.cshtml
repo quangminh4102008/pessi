@@ -1,0 +1,77 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Tuple<IEnumerable<Customer>, IEnumerable<CosmicBook.ComicBook>>
+
+@{
+ViewData["Title"] = "Rent Comic Books";
+}
+
+<h1>Rent Comic Books</h1>
+
+<form asp-action="Rent" method="post">
+    <div class="form-group">
+        <label for="CustomerID">Customer</label>
+        <select name="CustomerID" class="form-control" required>
+            <option value="">-- Select a Customer --</option>
+            @foreach (var customer in Model.Item1)
+            {
+            <option value="@customer.CustomerID">@customer.FullName</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="RentalDate">Rental Date</label>
+        <input type="date" name="RentalDate" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" readonly />
+    </div>
+
+    <div class="form-group">
+        <label for="ReturnDate">Return Date</label>
+        <input type="date" name="ReturnDate" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="ComicBookID">Select Comic Book</label>
+        <select name="ComicBookID" class="form-control" required>
+            <option value="">-- Select a Comic Book --</option>
+            @foreach (var book in Model.Item2)
+            {
+            <option value="@book.ComicBookID" data-price="@book.PricePerDay">@book.Title</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Quantity">Quantity</label>
+        <input type="number" name="Quantity" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="PricePerDay">Price Per Day</label>
+        <input type="text" name="PricePerDay" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label for="TotalPrice">Total Price</label>
+        <input type="text" name="TotalPrice" class="form-control" readonly />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Rental</button>
+</form>
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+<div>
+      
+</div>
+</body>
+</html>
